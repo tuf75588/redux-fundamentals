@@ -222,7 +222,7 @@
               return (
                 <li key={indx}>
                   <span
-                    onClick={() => props.onToggle(item)}
+                    onClick={() => props.onToggle && props.onToggle(item.id)}
                     style={{ textDecoration: item.complete ? 'line-through' : 'none' }}
                   >
                     {item.name}
@@ -253,7 +253,7 @@
           this.props.store.dispatch(removeTodoAction(todo.id));
         };
         onToggle = (todo) => {
-          this.props.store.dispatch(toggleTodoAction(todo.id));
+          this.props.store.dispatch(toggleTodoAction(todo));
         };
 
         render() {
